@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderStyleInterpolators, TransitionSpecs } from '@react-navigation/stack';
 import React from 'react';
 import 'react-native-gesture-handler';
-import { Splash } from '..';
+import { Splash,Counter} from '..';
 
 const Stack = createStackNavigator();
 
@@ -35,15 +35,17 @@ const MyTransition = {
     },
 };
 
-const App = () => {
+const Navigator = () => {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Splash" headerMode={'none'}>
+            <Stack.Navigator initialRouteName="Counter" headerMode={'none'}>
+                <Stack.Screen name="Counter" component={Counter} options={MyTransition} />
                 <Stack.Screen name="Splash" component={Splash} options={MyTransition} />
+
             </Stack.Navigator>
         </NavigationContainer>
     );
 };
 
-export default App;
+export default Navigator;
